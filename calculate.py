@@ -2,9 +2,9 @@ def calc(F, V):
 
 	import math
 
-	betafile = open("C:\\cygwin_64\\home\\JadenCho\\ardupilot\\build\\sitl\\bin\\buffer.bin", "r")
+	betafile = open("C:\\FlyJus\\dev\\ardupilot\\build\\sitl\\bin\\buffer.bin", "r")
 
-	datafile = open("C:\\cygwin_64\\home\\JadenCho\\x-plane_calc\\nodeOutput.txt", "r")
+	datafile = open("C:\\Users\\hboja\\Google Drive\\EC 464\\Senior-Design\\nodeOutput.txt", "r")
 
 	b = betafile.readline()
 	d = datafile.readlines()
@@ -36,10 +36,14 @@ def calc(F, V):
 		#print(trueYvel)
 		#print(trueforce_up)
 		#print(beta)
-
-		Ft = trueforce_up/math.sin(beta) #Units of N = Kg/ms^2
-
-		Vt = truegspeed/math.cos(beta) #Units of m/s
+		if trueforce_up==0 or math.sin(beta)==0: 
+			Ft = 0
+		else:
+			Ft = trueforce_up/math.sin(beta) #Units of N = Kg/ms^2
+		if truegspeed==0 or math.cos(beta)==0: 
+			Vt=0
+		else: 
+			Vt = truegspeed/math.cos(beta) #Units of m/s
 
 	#print(Ft)
 	#print(Vt)
