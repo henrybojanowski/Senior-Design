@@ -18,7 +18,7 @@ def calc(F, V):
 
 		gspeedstrl = d[0]
 		Yvelstrl = d[1]
-		force_upstrl = d[3]
+		force_upstrl = d[2]
 
 		gspeedstr = gspeedstrl.split(', ')
 		Yvelstr = Yvelstrl.split(', ')
